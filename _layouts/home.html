@@ -1,0 +1,84 @@
+---
+layout: default
+---
+<section class="hero shell">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="status-dot"></span> software engineer</div>
+    <h1>Construindo software,<br><span>entendendo os porquês.</span></h1>
+    <p class="hero-lead">
+      Sou Pablo Telis. Escrevo sobre backend, arquitetura, sistemas distribuídos e os detalhes que normalmente só aparecem quando o sistema começa a crescer.
+    </p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#artigos">Ler artigos</a>
+      <a class="button" href="https://github.com/BillRizer" target="_blank" rel="noreferrer">github/BillRizer ↗</a>
+    </div>
+  </div>
+
+  <aside class="terminal-card" aria-label="Resumo profissional">
+    <div class="terminal-top">
+      <span></span><span></span><span></span>
+      <small>profile.sh</small>
+    </div>
+    <div class="terminal-body">
+      <p><span class="prompt">$</span> whoami</p>
+      <p class="terminal-value">Pablo Telis</p>
+      <p><span class="prompt">$</span> focus --current</p>
+      <p class="terminal-value">backend · distributed systems · architecture</p>
+      <p><span class="prompt">$</span> approach</p>
+      <p class="terminal-value">simplicidade, observabilidade e decisões explícitas</p>
+      <p><span class="prompt">$</span> status</p>
+      <p class="terminal-value"><span class="status-dot"></span> sempre aprendendo</p>
+    </div>
+  </aside>
+</section>
+
+<section class="topics shell" aria-label="Temas do blog">
+  <span>backend</span>
+  <span>arquitetura</span>
+  <span>sistemas distribuídos</span>
+  <span>performance</span>
+  <span>dev experience</span>
+</section>
+
+<section id="artigos" class="section shell">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">notas de engenharia</span>
+      <h2>Artigos recentes</h2>
+    </div>
+    <a class="text-link" href="{{ '/artigos/' | relative_url }}">ver todos →</a>
+  </div>
+
+  <div class="post-grid">
+    {% for post in site.posts limit:6 %}
+      <article class="post-card{% if forloop.first %} post-card-featured{% endif %}">
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time>
+          {% if post.reading_time %}<span>{{ post.reading_time }}</span>{% endif %}
+        </div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncate: 180 }}</p>
+        <div class="post-card-footer">
+          <div class="tag-row">
+            {% for tag in post.tags limit:3 %}<span>#{{ tag }}</span>{% endfor %}
+          </div>
+          <a class="card-arrow" href="{{ post.url | relative_url }}" aria-label="Ler {{ post.title }}">↗</a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="principles shell section">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">como eu tento pensar software</span>
+      <h2>Menos mágica, mais contexto.</h2>
+    </div>
+  </div>
+  <div class="principle-grid">
+    <div><span>01</span><h3>Entender o problema antes da solução.</h3><p>Arquitetura boa começa nas restrições reais, não no diagrama.</p></div>
+    <div><span>02</span><h3>Preferir o simples que continua simples.</h3><p>Complexidade operacional também é custo técnico.</p></div>
+    <div><span>03</span><h3>Medir antes de otimizar.</h3><p>Observabilidade transforma opinião em dado para decidir.</p></div>
+  </div>
+</section>

@@ -1,42 +1,27 @@
-title: "Some other blog"
-author: "Pablo telis"
-description: "Some short description of your blog can go here." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+title: "Pablo Telis"
+description: "Software Engineer. Notas sobre backend, sistemas distribuídos, arquitetura e engenharia de software."
+author: "Pablo Telis"
+url: "https://billrizer.github.io"
+baseurl: ""
+lang: "pt-BR"
+timezone: "America/Sao_Paulo"
 
-# Email / Social media user names used by the minima theme:
-# All of these are optional and can be removed or commented out
-email: "example@mail.com"
-# twitter_username: "twitteruser"
-github_username: "BillRizer"
-linkedin_username: "pablotelis"
-#facebook_username: username
-#flickr_username: username
-#instagram_username: username
-#pinterest_username: username
-#youtube_username: username
-#googleplus_username: +username
+permalink: /artigos/:title/
 
-#########################################################################################
-######### Nothing below needs to be changed (unless you know what you're doing) #########
-#########################################################################################
-theme: "minima"
+markdown: kramdown
+highlighter: rouge
 
-rss: rss
-
-kramdown:
-  syntax_highlighter_opts:
-    disable: true
-    
 plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-titles_from_headings:
-  strip_title: true
-  collections: true
+feed:
+  path: feed.xml
 
-defaults:
-  - scope:
-      path: ""
-      type: post
-    values:
-      tags: Other
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .jekyll-cache
+  - .sass-cache

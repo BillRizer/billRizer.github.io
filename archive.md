@@ -1,13 +1,20 @@
 ---
 layout: page
-title: Blog Archive
+permalink: /artigos/
+title: Artigos
+kicker: arquivo
+description: Notas sobre problemas que encontrei, conceitos que precisei entender e decisões de arquitetura que vale a pena registrar.
 ---
 
-{% for tag in site.tags %}
-  <h3>{{ tag[0] }}</h3>
-  <ul>
-    {% for post in tag[1] %}
-      <li><a href="{{ post.url }}">{{ post.date | date: "%B %Y" }} - {{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<div class="archive-list">
+{% for post in site.posts %}
+  <article class="archive-item">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+    <div>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.description }}</p>
+      <div class="tag-row">{% for tag in post.tags %}<span>#{{ tag }}</span>{% endfor %}</div>
+    </div>
+  </article>
 {% endfor %}
+</div>
